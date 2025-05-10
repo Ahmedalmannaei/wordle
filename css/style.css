@@ -1,0 +1,24 @@
+body {
+  background-color: gray;
+}
+
+#keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  width: 275px;
+  justify-content: center;
+}
+button {
+  background-color: black;
+  color: white;
+}
+#header {
+  font-size: 50px;
+  text-align: center;
+}
+.tile {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: white;
+}
