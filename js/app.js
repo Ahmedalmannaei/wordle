@@ -5,8 +5,6 @@ const wordsArray =["crane", "flame", "brick", "spine", "grape", "apple", "chair"
 let numberOfGuesses = 6;
 let currentGuess = [];
 let correctWord = wordsArray[Math.floor(Math.random()*wordsArray.length)]
-
-
 /*----- Cached Element References  -----*/
 const boardElm = document.querySelector('#board');
 const tilesElm = document.querySelectorAll('.tile');
@@ -37,6 +35,7 @@ const deleteLetter = ()=>{
 }
 const submitGuess = ()=>{
     if(currentGuess.length<5 || numberOfGuesses===0){
+        alert("Invalid guess");
         return
     }
 }
