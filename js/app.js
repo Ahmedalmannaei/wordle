@@ -5,6 +5,20 @@ const wordsArray =["crane", "flame", "brick", "spine", "grape", "apple", "chair"
 let numberOfGuesses = 6;
 let currentGuess = [];
 let correctWord = wordsArray[Math.floor(Math.random()*wordsArray.length)]
+console.log(correctWord);
+let rows = 6
+let cols= 5
+let tilesBoard = [];
+for(r=0;r<rows;r++){
+  let row = [];
+  for(c=0;c<cols;c++){
+    const tile=document.getElementById(`${r}-${c}`);
+    row.push(tile)
+  }
+  tilesBoard.push(row)
+}
+console.log(tilesBoard);
+
 /*----- Cached Element References  -----*/
 const boardElm = document.querySelector('#board');
 const tilesElm = document.querySelectorAll('.tile');
@@ -27,7 +41,13 @@ if(currentGuess.length ===5){
 }
 let clickedLetter = event.target.innerText;
 clickedLetter=clickedLetter.toLowerCase();
+
 currentGuess.push(clickedLetter);
+if(numberOfGuesses===6){
+    for(i=0;i<5;i++){
+        tilesBoard[0][i].innerText=currentGuess[i];
+    }
+}
 console.log(currentGuess);
 }
 const deleteLetter = ()=>{
