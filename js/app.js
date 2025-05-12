@@ -15,14 +15,38 @@ const deleteElm = document.querySelector('#delete');
 const enterElm = document.querySelector('#enter');
 
 /*-------------- Functions -------------*/
+// const init = ()=>{
+//     numberOfGuesses = 6;
+//     currentGuess = [];
+//     render();
+// }
+// const render = ()=>{
+
+// }
 const handleLetters = (event)=>{
-const clickedLetter = event.target.innerText;
-console.log(clickedLetter);
+if(currentGuess.length ===5){
+    return
 }
+let clickedLetter = event.target.innerText;
+clickedLetter=clickedLetter.toLowerCase();
+currentGuess.push(clickedLetter);
+console.log(currentGuess);
+}
+const deleteLetter = ()=>{
+    currentGuess.pop();
+}
+const submitGuess = ()=>{
+    if(currentGuess.length<5 || numberOfGuesses===0){
+        return
+    }
+}
+
 
 /*----------- Event Listeners ----------*/
 lettersElm.forEach((letter,i)=>{
     lettersElm[i].addEventListener("click",handleLetters)
 });
+deleteElm.addEventListener("click",deleteLetter);
+enterElm.addEventListener("click",submitGuess);
 
 
