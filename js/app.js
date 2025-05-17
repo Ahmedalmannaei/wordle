@@ -18,7 +18,6 @@ for(r=0;r<rows;r++){
   }
   tilesBoard.push(row)
 }
-console.log(tilesBoard);
 
 /*----- Cached Element References  -----*/
 const boardElm = document.querySelector('#board');
@@ -26,15 +25,21 @@ const tilesElm = document.querySelectorAll('.tile');
 const lettersElm = document.querySelectorAll('.letter');
 const deleteElm = document.querySelector('#delete');
 const enterElm = document.querySelector('#enter');
+const resetElm = document.querySelector('#reset');
 
 /*-------------- Functions -------------*/
 const init = ()=>{
     numberOfGuesses = 6;
     currentGuess = [];
     currentRow=0;
-    render();
-}
-const render = ()=>{
+    correctWord = wordsArray[Math.floor(Math.random()*wordsArray.length)]
+    for (let r = 0; r < 6; r++) {
+        for (let c = 0; c < 5; c++) {
+          const tile = tilesBoard[r][c];
+          tile.textContent = '';
+          tile.dataset.state = ''; // remove green/yellow/gray styling
+        }
+      }
 
 }
 const handleLetters = (event)=>{
@@ -82,7 +87,6 @@ const submitGuess = ()=>{
         let delay = 250*i;
     setTimeout(() => {
         currentTile.dataset.state = color; 
-        shadeKeyBoard(letter,  color);
       }, delay);
     
     }
@@ -101,6 +105,10 @@ const submitGuess = ()=>{
        
     }
 }
+const reset = ()=>{
+    init();
+}
+init();
 
 
 /*----------- Event Listeners ----------*/
@@ -110,4 +118,11 @@ lettersElm.forEach((letter,i)=>{
 deleteElm.addEventListener("click",deleteLetter);
 enterElm.addEventListener("click",submitGuess);
 
-
+document.getElementById("how-to-play").addEventListener("click", () => {
+    document.getElementById("instructions").classList.remove("hidden");
+  });
+  
+  document.getElementById("close-instructions").addEventListener("click", () => {
+    document.getElementById("instructions").classList.add("hidden");
+  });
+resetElm.addEventListener("click",reset)
