@@ -56,3 +56,7 @@ justify-content: center;
     text-align: center;
     font-size: 30px;
 }
+.tile[data-state="green"]  { background-color: #6aaa64; color: white; }
+.tile[data-state="yellow"] { background-color: #c9b458; color: white; }
+.tile[data-state="gray"]   { background-color: #787c7e; color: white; }
+

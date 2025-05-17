@@ -75,14 +75,15 @@ const submitGuess = ()=>{
             }
         }
         correctWord[position]='$';
-    }
-    let delay = 250*i;
+        let delay = 250*i;
     setTimeout(() => {
         box.dataset.state = color; 
         shadeKeyBoard(letter,  color);
       }, delay);
     
     }
+    }
+    
     if(currentGuess.join("").toLowerCase()===correctWord){
         alert("Congratulations you win");
         numberOfGuesses = 0;
