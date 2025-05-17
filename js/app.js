@@ -28,14 +28,15 @@ const deleteElm = document.querySelector('#delete');
 const enterElm = document.querySelector('#enter');
 
 /*-------------- Functions -------------*/
-// const init = ()=>{
-//     numberOfGuesses = 6;
-//     currentGuess = [];
-//     render();
-// }
-// const render = ()=>{
+const init = ()=>{
+    numberOfGuesses = 6;
+    currentGuess = [];
+    currentRow=0;
+    render();
+}
+const render = ()=>{
 
-// }
+}
 const handleLetters = (event)=>{
 if(currentGuess.length ===5){
     return
@@ -49,17 +50,20 @@ const tile = tilesBoard[currentRow][currentGuess.length - 1];
 console.log(currentGuess);
 }
 const deleteLetter = ()=>{
+    if (currentGuess.length === 0) return;
     currentGuess.pop();
+    const currentTile = tilesBoard[currentRow][currentGuess.length];
+  currentTile.textContent = '';
+ 
 }
 const submitGuess = ()=>{
     if(currentGuess.length<5){
-        alert("Invalid guess");
         return
     }
     else{
         let correctGuess = correctWord.split("");
     for(i=0;i<5;i++){
-        let box = tilesBoard[currentRow][i];
+        let currentTile = tilesBoard[currentRow][i];
         let position = correctWord.indexOf(currentGuess[i]);
         let color = '';
         let letter = currentGuess[i];
@@ -77,7 +81,7 @@ const submitGuess = ()=>{
         correctWord[position]='$';
         let delay = 250*i;
     setTimeout(() => {
-        box.dataset.state = color; 
+        currentTile.dataset.state = color; 
         shadeKeyBoard(letter,  color);
       }, delay);
     
@@ -85,7 +89,7 @@ const submitGuess = ()=>{
     }
     
     if(currentGuess.join("").toLowerCase()===correctWord){
-        alert("Congratulations you win");
+        
         numberOfGuesses = 0;
     }
     else{
@@ -94,7 +98,7 @@ const submitGuess = ()=>{
         currentRow++;
     }
     if(numberOfGuesses===0){
-        alert("You have ran out of guesses Game over");
+       
     }
 }
 

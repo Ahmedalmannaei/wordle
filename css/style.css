@@ -60,3 +60,14 @@ justify-content: center;
 .tile[data-state="yellow"] { background-color: #c9b458; color: white; }
 .tile[data-state="gray"]   { background-color: #787c7e; color: white; }
 
+#top-bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#top-bar button {
+    color: black;
+    border-radius: 5px;
+    background-color: #ddd;
+    cursor: pointer;
+  }
