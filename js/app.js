@@ -1,15 +1,55 @@
 /*-------------- Constants -------------*/
 const wordsArray = [
-  "crane",
-  "flame",
-  "brick",
-  "spine",
-  "grape",
   "apple",
+  "brick",
   "chair",
+  "dance",
+  "eagle",
+  "flame",
+  "grape",
+  "heart",
+  "input",
+  "jelly",
+  "knock",
+  "light",
+  "music",
+  "night",
+  "ocean",
   "plant",
-  "sugar",
-  "globe",
+  "queen",
+  "river",
+  "stone",
+  "table",
+  "urban",
+  "vivid",
+  "water",
+  "xenon",
+  "yield",
+  "zebra",
+  "angel",
+  "bliss",
+  "cloud",
+  "dream",
+  "earth",
+  "frost",
+  "glory",
+  "happy",
+  "ideal",
+  "jolly",
+  "karma",
+  "lemon",
+  "magic",
+  "noble",
+  "optic",
+  "pride",
+  "quest",
+  "right",
+  "solar",
+  "trend",
+  "unity",
+  "value",
+  "whale",
+  "young",
 ];
 
 /*---------- Variables (state) ---------*/
@@ -49,6 +89,9 @@ const init = () => {
       tile.textContent = "";
       tile.dataset.state = "";
     }
+    lettersElm.forEach((Letter) => {
+      Letter.dataset.state = "";
+    });
   }
   message = "";
   document.getElementById("message").textContent = message;
@@ -71,7 +114,14 @@ const deleteLetter = () => {
   const currentTile = tilesBoard[currentRow][currentGuess.length];
   currentTile.textContent = "";
 };
-
+const getLetter = (letter) => {
+  for (const element of lettersElm) {
+    if (element.textContent.toLowerCase() === letter.toLowerCase()) {
+      return element;
+    }
+  }
+  return null;
+};
 const submitGuess = () => {
   let guessedWord = currentGuess.join("").toLowerCase();
   if (currentGuess.length < 5) {
@@ -88,8 +138,8 @@ const submitGuess = () => {
     for (i = 0; i < 5; i++) {
       let currentTile = tilesBoard[currentRow][i];
       let position = correctGuess.indexOf(currentGuess[i]);
+      let letter = getLetter(currentGuess[i]);
       let color = "";
-      let letter = currentGuess[i];
       if (position == -1) {
         color = "gray";
       } else {
@@ -104,6 +154,16 @@ const submitGuess = () => {
       let delay = 250 * i;
       setTimeout(() => {
         currentTile.dataset.state = color;
+        if (letter) {
+          const currentState = letter.dataset.state;
+          if (
+            !currentState ||
+            (currentState === "gray" && color !== "gray") ||
+            (currentState === "yellow" && color === "green")
+          ) {
+            letter.dataset.state = color;
+          }
+        }
       }, delay);
     }
   }
