@@ -69,21 +69,25 @@ const submitGuess = ()=>{
         let correctGuess = correctWord.split("");
     for(i=0;i<5;i++){
         let currentTile = tilesBoard[currentRow][i];
-        let position = correctWord.indexOf(currentGuess[i]);
+        let position = correctGuess.indexOf(currentGuess[i]);
         let color = '';
         let letter = currentGuess[i];
         if(position==-1){
             color = 'gray';
         }
         else{
-            if(currentGuess[i]===correctWord[i]){
+            if(currentGuess[i]===correctGuess[i]){
                 color='green';
+                correctGuess[position] = null;  
+
             }
             else{
                 color='yellow';
+                correctGuess[position] = null; 
+
             }
         }
-        correctWord[position]='$';
+        correctGuess[position]='$';
         let delay = 250*i;
     setTimeout(() => {
         currentTile.dataset.state = color; 
