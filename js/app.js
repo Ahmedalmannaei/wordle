@@ -69,6 +69,7 @@ for (r = 0; r < rows; r++) {
   tilesBoard.push(row);
 }
 let message = "";
+let winner = false;
 /*----- Cached Element References  -----*/
 const boardElm = document.querySelector("#board");
 const tilesElm = document.querySelectorAll(".tile");
@@ -109,7 +110,7 @@ const handleLetters = (event) => {
   console.log(currentGuess);
 };
 const deleteLetter = () => {
-  if (currentGuess.length === 0) return;
+  if (currentGuess.length === 0 || winner === true) return;
   currentGuess.pop();
   const currentTile = tilesBoard[currentRow][currentGuess.length];
   currentTile.textContent = "";
@@ -133,6 +134,8 @@ const submitGuess = () => {
     document.getElementById("message").textContent = message;
     return;
   } else {
+    message = "";
+    document.getElementById("message").textContent = message;
     let correctGuess = correctWord.split("");
     console.log(correctGuess);
     for (i = 0; i < 5; i++) {
@@ -173,6 +176,7 @@ const submitGuess = () => {
       numberOfGuesses - 1
     } guesses remaining`;
     document.getElementById("message").textContent = message;
+    winner = true;
     numberOfGuesses = 0;
   } else {
     numberOfGuesses--;
