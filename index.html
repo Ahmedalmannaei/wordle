@@ -9,22 +9,30 @@
   </head>
   <body>
     <h1 id="header">Wordle</h1>
-    <div id="top-bar">
-        <button id="how-to-play">How to Play</button>
-        <div id="instructions" class="hidden">
-            <div>
-                <p>How to play:</p>
-                <p>Guess the word in 6 tries</p>
-                <ul>
-                    <li><span style="color:green">Green</span>: correct letter & position</li>
-                    <li><span style="color:goldenrod">Yellow</span>: correct letter, wrong position</li>
-                    <li><span style="color:gray">Gray</span>: letter not in the word</li>
-                  </ul>
-                  <button id="close-instructions">Close</button>
-            </div>
+    <div id="button-bar">
+      <button id="how-to-play">How to Play</button>
+      <div id="instructions" class="hidden">
+        <div>
+          <p>How to play:</p>
+          <p>Guess the word in 6 tries</p>
+          <ul>
+            <li>
+              <span style="color: green">Green</span>: correct letter & position
+            </li>
+            <li>
+              <span style="color: goldenrod">Yellow</span>: correct letter,
+              wrong position
+            </li>
+            <li>
+              <span style="color: gray">Gray</span>: letter not in the word
+            </li>
+          </ul>
+          <button id="close-instructions">Close</button>
         </div>
-        <button id="reset">Reset</button>
       </div>
+      <button id="reset">Reset</button>
+    </div>
+    <p id="message"></p>
     <div id="board">
       <div class="row">
         <div class="tile" id="0-0"></div>

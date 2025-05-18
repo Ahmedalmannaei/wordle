@@ -5,7 +5,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 #keyboard {
@@ -21,69 +20,82 @@ button {
   width: 50px;
   height: 50px;
   margin: 1px;
-  
 }
-.kbrow{
-display: flex;
-flex-wrap: wrap;
-flex-direction: row;
-align-items: center;
-justify-content: center;
+.kbrow {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 #header {
   font-size: 50px;
   text-align: center;
 }
-#board{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 1px;
+#board {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 1px;
 }
-.row{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin: 1px;
-    
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 1px;
 }
 .tile {
-    border: 2px solid gray;
-    border-radius: 3px;
-    margin: 1px;
-    height: 40px;
-    width: 40px;
-    text-align: center;
-    font-size: 30px;
+  border: 2px solid gray;
+  border-radius: 3px;
+  margin: 1px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  font-size: 30px;
 }
-.tile[data-state="green"]  { background-color: #6aaa64; color: white; }
-.tile[data-state="yellow"] { background-color: #c9b458; color: white; }
-.tile[data-state="gray"]   { background-color: #787c7e; color: white; }
+.tile[data-state="green"] {
+  background-color: green;
+  color: white;
+}
+.tile[data-state="yellow"] {
+  background-color: gold;
+  color: white;
+}
+.tile[data-state="gray"] {
+  background-color: gray;
+  color: white;
+}
+button[data-state="green"] {
+  background-color: green;
+  color: white;
+}
+button[data-state="yellow"] {
+  background-color: gold;
+  color: black;
+}
+button[data-state="gray"] {
+  background-color: gray;
+  color: white;
+}
 
-#top-bar{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#button-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-#top-bar button {
-    color: black;
-    border-radius: 5px;
-    background-color: #ddd;
-    cursor: pointer;
-  }
-  #instructions {
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    padding: 5px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    z-index: 999;
-  }
-  
-  .hidden {
-    display: none;
-  }
+#button-bar button {
+  color: black;
+  border-radius: 5px;
+  background-color: #ddd;
+}
+#instructions {
+  position: fixed;
+  background: white;
+  padding: 5px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
+
+.hidden {
+  display: none;
+}
