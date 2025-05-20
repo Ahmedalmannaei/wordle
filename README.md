@@ -25,3 +25,58 @@ Planned future enhancements or stretch goals:
 - Expand the list of words.
 - Add dark mode feature for more customization.
 - Add definition of the word after you finish guessing.
+
+### Word List
+
+The game these 5-letter words:
+
+- apple
+- brick
+- chair
+- dance
+- eagle
+- flame
+- grape
+- heart
+- input
+- jelly
+- knock
+- light
+- music
+- night
+- ocean
+- plant
+- queen
+- river
+- stone
+- table
+- urban
+- vivid
+- water
+- xenon
+- yield
+- zebra
+- angel
+- bliss
+- cloud
+- dream
+- earth
+- frost
+- glory
+- happy
+- ideal
+- jolly
+- karma
+- lemon
+- magic
+- noble
+- optic
+- pride
+- quest
+- right
+- solar
+- trend
+- unity
+- value
+- whale
+- young
