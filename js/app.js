@@ -89,6 +89,7 @@ const init = () => {
       const tile = tilesBoard[r][c];
       tile.textContent = "";
       tile.dataset.state = "";
+      tile.classList.remove("flip");
     }
     lettersElm.forEach((Letter) => {
       Letter.dataset.state = "";
@@ -106,7 +107,7 @@ const handleLetters = (event) => {
 
   currentGuess.push(clickedLetter);
   const tile = tilesBoard[currentRow][currentGuess.length - 1];
-  tile.textContent = clickedLetter.toUpperCase();
+  tile.innerHTML = `<span>${clickedLetter.toUpperCase()}</span>`;
   console.log(currentGuess);
 };
 const deleteLetter = () => {
@@ -151,11 +152,11 @@ const submitGuess = () => {
           correctGuess[position] = null;
         } else {
           color = "yellow";
-          correctGuess[position] = null;
         }
       }
       let delay = 250 * i;
       setTimeout(() => {
+        currentTile.classList.add("flip");
         currentTile.dataset.state = color;
         if (letter) {
           const currentState = letter.dataset.state;
