@@ -1,6 +1,6 @@
 # Wordle
 
-![Screenshot or Logo](https://imgur.com/a/7iZljZY)
+![Screenshot or Logo](https://i.imgur.com/2vnkKYs.png)
 
 ## Description
 
