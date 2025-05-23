@@ -98,7 +98,9 @@ button[data-state="gray"] {
 }
 #instructions {
   position: fixed;
-  background: white;
+  z-index: 999;
+  top: 20%;
+  background: whitesmoke;
   padding: 5px;
   border: 2px solid #ccc;
   border-radius: 10px;
