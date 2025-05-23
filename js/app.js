@@ -108,7 +108,6 @@ const handleLetters = (event) => {
   currentGuess.push(clickedLetter);
   const tile = tilesBoard[currentRow][currentGuess.length - 1];
   tile.innerHTML = `<span>${clickedLetter.toUpperCase()}</span>`;
-  console.log(currentGuess);
 };
 const deleteLetter = () => {
   if (currentGuess.length === 0 || winner === true) return;
